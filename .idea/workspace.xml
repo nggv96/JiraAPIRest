@@ -12,6 +12,7 @@
       <change beforePath="$PROJECT_DIR$/target/classes/test/java/co/com/jira/runners/JiraRunner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/java/co/com/jira/runners/JiraRunner.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/test/java/co/com/jira/stepdefinitions/JiraStepDefinition.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/java/co/com/jira/stepdefinitions/JiraStepDefinition.class" afterDir="false" />
     </list>
+
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
