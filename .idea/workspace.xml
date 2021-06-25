@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a3ff666-5c17-4aa1-8b2b-a9237cd9c238" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/co/com/jira/utils/DataSaver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/co/com/jira/runners/JiraRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/co/com/jira/runners/JiraRunner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/co/com/jira/stepdefinitions/JiraStepDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/co/com/jira/stepdefinitions/JiraStepDefinition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/apiResources/JiraResources.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/apiResources/JiraResources.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/jira.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/jira.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/test/java/co/com/jira/runners/JiraRunner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/java/co/com/jira/runners/JiraRunner.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/test/java/co/com/jira/stepdefinitions/JiraStepDefinition.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/java/co/com/jira/stepdefinitions/JiraStepDefinition.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/resources/apiResources/JiraResources.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/resources/apiResources/JiraResources.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/apiResources/JiraResources.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/apiResources/JiraResources.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/features/jira.feature" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/features/jira.feature" afterDir="false" />
     </list>
 
     <option name="SHOW_DIALOG" value="false" />
