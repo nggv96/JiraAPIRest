@@ -7,14 +7,21 @@ import io.cucumber.java.en.When;
 
 import io.restassured.RestAssured;
 import io.restassured.filter.session.SessionFilter;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Assert;
+import test.java.co.com.jira.utils.DataSaver;
+import test.java.co.com.jira.utils.JsonHandle;
 import test.resources.apiResources.JiraResources;
 import test.resources.payloads.JiraPayloads;
 
 import static io.restassured.RestAssured.*;
 
+
+
 public class JiraStepDefinition {
+
+    static DataSaver data = new DataSaver();
 
     SessionFilter session = new SessionFilter();
     Response response;
@@ -39,26 +46,33 @@ public class JiraStepDefinition {
                 .when().post(JiraResources.createIssue())
                 .then().log().all().assertThat().statusCode(201)
                 .extract().response();
+
+        JsonPath responseJs = JsonHandle.rawToJson(response.asString());
+        data.setIssueKey(responseJs.getString("key"));
     }
     @Then("the API call is success with status code {int}")
     public void theAPICallIsSuccessWithStatusCode(int status) {
+
         Assert.assertEquals(status, response.getStatusCode());
     }
 
     @When("user calls CreateComment API with POST http request with comment {string}")
     public void userCallsCreateCommentAPIWithPOSTHttpRequestWithComment(String comment) {
-        response = given().pathParam("key","RSA-29").log().all()
+        response = given().pathParam("key",data.getIssueKey()).log().all()
                 .header("Content-Type", "application/json")
                 .body(JiraPayloads.addComment(comment)).filter(session)
                 .when().post(JiraResources.addComment())
                 .then().log().all().assertThat().statusCode(201)
                 .extract().response();
+
+        JsonPath responseJs = JsonHandle.rawToJson(response.asString());
+        data.setIdCom(responseJs.getString("id"));
     }
 
     @When("user calls DeleteComment API with DELETE http request")
     public void userCallsDeleteCommentAPIWithDELETEHttpRequest() {
-        response = given().pathParam("key", "RSA-29")
-                .pathParam("id", "10203").log().all().filter(session)
+        response = given().pathParam("key", data.getIssueKey())
+                .pathParam("id", data.getIdCom()).log().all().filter(session)
                 .when().delete(JiraResources.deleteComment())
                 .then().log().all().assertThat().statusCode(204)
                 .extract().response();
@@ -66,7 +80,7 @@ public class JiraStepDefinition {
 
     @When("user calls DeleteIssue API with DELETE http request")
     public void userCallsDeleteIssueAPIWithDELETEHttpRequest() {
-        response = given().pathParam("key", "RSA-29").log().all().filter(session)
+        response = given().pathParam("key", data.getIssueKey()).log().all().filter(session)
                 .when().delete(JiraResources.deleteIssue())
                 .then().log().all().assertThat().statusCode(204)
                 .extract().response();
