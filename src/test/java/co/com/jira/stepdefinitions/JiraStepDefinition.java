@@ -23,6 +23,7 @@ public class JiraStepDefinition {
     public void beforeJira(){
             RestAssured.baseURI = "http://localhost:8080";
     }
+
     @Given("authentication witn user {string} and password {string}")
     public void authenticationWitnUserAndPassword(String user, String pss) {
         given().log().all().header("Content-Type", "application/json")
@@ -42,5 +43,32 @@ public class JiraStepDefinition {
     @Then("the API call is success with status code {int}")
     public void theAPICallIsSuccessWithStatusCode(int status) {
         Assert.assertEquals(status, response.getStatusCode());
+    }
+
+    @When("user calls CreateComment API with POST http request with comment {string}")
+    public void userCallsCreateCommentAPIWithPOSTHttpRequestWithComment(String comment) {
+        response = given().pathParam("key","RSA-29").log().all()
+                .header("Content-Type", "application/json")
+                .body(JiraPayloads.addComment(comment)).filter(session)
+                .when().post(JiraResources.addComment())
+                .then().log().all().assertThat().statusCode(201)
+                .extract().response();
+    }
+
+    @When("user calls DeleteComment API with DELETE http request")
+    public void userCallsDeleteCommentAPIWithDELETEHttpRequest() {
+        response = given().pathParam("key", "RSA-29")
+                .pathParam("id", "10203").log().all().filter(session)
+                .when().delete(JiraResources.deleteComment())
+                .then().log().all().assertThat().statusCode(204)
+                .extract().response();
+    }
+
+    @When("user calls DeleteIssue API with DELETE http request")
+    public void userCallsDeleteIssueAPIWithDELETEHttpRequest() {
+        response = given().pathParam("key", "RSA-29").log().all().filter(session)
+                .when().delete(JiraResources.deleteIssue())
+                .then().log().all().assertThat().statusCode(204)
+                .extract().response();
     }
 }

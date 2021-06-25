@@ -12,9 +12,19 @@ public class JiraResources {
         return "/rest/api/2/issue";
     }
 
+    public static String deleteIssue(){
+
+        return "/rest/api/2/issue/{key}";
+    }
+
     public static String addComment(){
 
         return "rest/api/2/issue/{key}/comment";
+    }
+
+    public static String deleteComment(){
+
+        return "/rest/api/2/issue/{key}/comment/{id}";
     }
 
     public static String addAttachment(){
@@ -26,4 +36,5 @@ public class JiraResources {
 
         return "/rest/api/2/issue/{key}";
     }
+
 }
