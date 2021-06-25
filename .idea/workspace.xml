@@ -16,6 +16,7 @@
       <change beforePath="$PROJECT_DIR$/target/test-classes/apiResources/JiraResources.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/apiResources/JiraResources.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/features/jira.feature" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/features/jira.feature" afterDir="false" />
     </list>
+
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
