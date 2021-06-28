@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Create Issue",
+  "description": "Create Issue API for Jira",
+  "type": "object",
+
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "id number of issue"
+    },
+    "key": {
+      "type": "string",
+      "description": "key on issue"
+    },
+    "self": {
+      "type": "string",
+      "description": "Issue url"
+    }
+  }
+}

@@ -5,14 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a3ff666-5c17-4aa1-8b2b-a9237cd9c238" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/co/com/jira/utils/DataSaver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_19_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_beanutils_commons_beanutils_1_9_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_collections_commons_collections_3_2_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_digester_commons_digester_1_8_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_validator_commons_validator_1_5_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_everit_json_org_everit_json_schema_1_5_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_json_json_20160810.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/co/com/jira/utils/JsonHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/co/com/jira/utils/SchemaHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JiraAPIRest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/JiraAPIRest.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/co/com/jira/runners/JiraRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/co/com/jira/runners/JiraRunner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/co/com/jira/stepdefinitions/JiraStepDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/co/com/jira/stepdefinitions/JiraStepDefinition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/co/com/jira/utils/JsonHandle.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/test/java/co/com/jira/runners/JiraRunner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/java/co/com/jira/runners/JiraRunner.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/test/java/co/com/jira/stepdefinitions/JiraStepDefinition.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/java/co/com/jira/stepdefinitions/JiraStepDefinition.class" afterDir="false" />
     </list>
-
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,6 +46,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
