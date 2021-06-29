@@ -16,10 +16,10 @@ Feature: Issues manage
   Scenario: Delete comment in to Issue Succesfully
     Given authentication witn user "ngutierrezg96" and password "Medellin.2021"
     When user calls DeleteComment API with DELETE http request
-    Then the API call is success with status code 204  and comply with the schema 3
+    Then the API call is success with status code 204 and comply with the schema 3
 
   @DeleteIssue
   Scenario: Delete Issue Succesfully
     Given authentication witn user "ngutierrezg96" and password "Medellin.2021"
     When user calls DeleteIssue API with DELETE http request
-    Then the API call is success with status code 204  and comply with the schema 4
+    Then the API call is success with status code 204 and comply with the schema 3

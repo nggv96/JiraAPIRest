@@ -58,9 +58,12 @@ public class JiraStepDefinition {
     @Then("the API call is success with status code {int} and comply with the schema {int}")
     public void theAPICallIsSuccessWithStatusCodeAndComplyWithTheSchema(int status, int schema) throws FileNotFoundException {
         Assert.assertEquals(status, response.getStatusCode());
-        JSONObject jsonResponse = JsonHandler.rawToJsonObject(response.body().asString());
-        Schema schemaValidator = SchemaHandler.defineSchema(SchemaPath.selector(schema));
-        schemaValidator.validate(jsonResponse);
+        
+        if(!(schema == 3)) {
+            JSONObject jsonResponse = JsonHandler.rawToJsonObject(response.body().asString());
+            Schema schemaValidator = SchemaHandler.defineSchema(SchemaPath.selector(schema));
+            schemaValidator.validate(jsonResponse);
+        }
     }
 
     @When("user calls CreateComment API with POST http request with comment {string}")
