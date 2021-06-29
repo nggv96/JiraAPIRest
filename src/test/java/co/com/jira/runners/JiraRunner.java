@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features/jira.feature"
         ,glue = "test.java.co.com.jira.stepdefinitions"
         ,snippets = CucumberOptions.SnippetType.CAMELCASE
-        //,tags = "@DeleteIssue"
+        //,tags = "@CreateCommentInIssue"
 )
 
 public class JiraRunner {

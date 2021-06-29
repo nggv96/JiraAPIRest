@@ -9,15 +9,19 @@ import io.restassured.RestAssured;
 import io.restassured.filter.session.SessionFilter;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+import org.everit.json.schema.Schema;
+import org.json.JSONObject;
 import org.junit.Assert;
 import test.java.co.com.jira.utils.DataSaver;
-import test.java.co.com.jira.utils.JsonHandle;
+import test.java.co.com.jira.utils.JsonHandler;
+import test.java.co.com.jira.utils.SchemaHandler;
 import test.resources.apiResources.JiraResources;
+import test.resources.jsonschema.SchemaPath;
 import test.resources.payloads.JiraPayloads;
 
+import java.io.FileNotFoundException;
+
 import static io.restassured.RestAssured.*;
-
-
 
 public class JiraStepDefinition {
 
@@ -47,13 +51,19 @@ public class JiraStepDefinition {
                 .then().log().all().assertThat().statusCode(201)
                 .extract().response();
 
-        JsonPath responseJs = JsonHandle.rawToJson(response.asString());
+        JsonPath responseJs = JsonHandler.rawToJson(response.asString());
         data.setIssueKey(responseJs.getString("key"));
     }
-    @Then("the API call is success with status code {int}")
-    public void theAPICallIsSuccessWithStatusCode(int status) {
 
+    @Then("the API call is success with status code {int} and comply with the schema {int}")
+    public void theAPICallIsSuccessWithStatusCodeAndComplyWithTheSchema(int status, int schema) throws FileNotFoundException {
         Assert.assertEquals(status, response.getStatusCode());
+        
+        if(!(schema == 3)) {
+            JSONObject jsonResponse = JsonHandler.rawToJsonObject(response.body().asString());
+            Schema schemaValidator = SchemaHandler.defineSchema(SchemaPath.selector(schema));
+            schemaValidator.validate(jsonResponse);
+        }
     }
 
     @When("user calls CreateComment API with POST http request with comment {string}")
@@ -65,7 +75,7 @@ public class JiraStepDefinition {
                 .then().log().all().assertThat().statusCode(201)
                 .extract().response();
 
-        JsonPath responseJs = JsonHandle.rawToJson(response.asString());
+        JsonPath responseJs = JsonHandler.rawToJson(response.asString());
         data.setIdCom(responseJs.getString("id"));
     }
 
