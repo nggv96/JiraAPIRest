@@ -17,5 +17,6 @@
       "type": "string",
       "description": "Issue url"
     }
-  }
+  },
+  "required": ["id", "key", "self"]
 }

@@ -10,23 +10,18 @@ import io.restassured.filter.session.SessionFilter;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.everit.json.schema.Schema;
-import org.everit.json.schema.loader.SchemaLoader;
 import org.json.JSONObject;
-import org.json.JSONTokener;
 import org.junit.Assert;
 import test.java.co.com.jira.utils.DataSaver;
 import test.java.co.com.jira.utils.JsonHandler;
 import test.java.co.com.jira.utils.SchemaHandler;
 import test.resources.apiResources.JiraResources;
+import test.resources.jsonschema.SchemaPath;
 import test.resources.payloads.JiraPayloads;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 import static io.restassured.RestAssured.*;
-
-
 
 public class JiraStepDefinition {
 
@@ -59,18 +54,13 @@ public class JiraStepDefinition {
         JsonPath responseJs = JsonHandler.rawToJson(response.asString());
         data.setIssueKey(responseJs.getString("key"));
     }
-    @Then("the API call is success with status code {int}")
-    public void theAPICallIsSuccessWithStatusCode(int status) throws FileNotFoundException {
 
+    @Then("the API call is success with status code {int} and comply with the schema {int}")
+    public void theAPICallIsSuccessWithStatusCodeAndComplyWithTheSchema(int status, int schema) throws FileNotFoundException {
         Assert.assertEquals(status, response.getStatusCode());
-
         JSONObject jsonResponse = JsonHandler.rawToJsonObject(response.body().asString());
-
-        Schema schemaValidator = SchemaHandler.defineSchema("src/test/resources/jsonschema/CreateIssueSchema.json");
-
+        Schema schemaValidator = SchemaHandler.defineSchema(SchemaPath.selector(schema));
         schemaValidator.validate(jsonResponse);
-
-
     }
 
     @When("user calls CreateComment API with POST http request with comment {string}")

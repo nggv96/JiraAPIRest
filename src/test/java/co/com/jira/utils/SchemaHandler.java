@@ -14,6 +14,7 @@ public class SchemaHandler {
     public static Schema defineSchema(String schemaPath) throws FileNotFoundException {
 
         File schemaFile = new File(schemaPath);
+        System.out.println("Path: "+schemaPath);
         JSONTokener schemaData = new JSONTokener(new FileInputStream(schemaFile));
         JSONObject jsonSchema = new JSONObject(schemaData);
 
